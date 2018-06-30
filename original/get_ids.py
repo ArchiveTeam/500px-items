@@ -14,7 +14,7 @@ def main():
         with open(path, 'r') as f:
             data = json.loads(re.search(r'(\{.+\})', f.read()).group(1))
             ids |= {p['url'].split('/')[2] for p in data['photos']}
-    with open('{}_ids.txt'.format(sys.argv[1].rstrip('/')), 'w') as f:
+    with open('{}_ids.txt'.format(sys.argv[1]), 'w') as f:
         f.write('\n'.join(sorted(ids)))
 
 if __name__ == '__main__':
